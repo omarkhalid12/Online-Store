@@ -27,8 +27,8 @@ const ProductCard = ({product} : IProps) => {
       </div>
 
       <div className="flex items-center justify-between space-x-2 mt-5">
-        <Button className="bg-indigo-700" width="w-full">Edit</Button>
-        <Button className="bg-red-700">Delete</Button>
+        <Button className="bg-indigo-700 hover:bg-indigo-800">Edit</Button>
+        <Button className="bg-red-700 hover:bg-red-800">Delete</Button>
       </div>
     </div>
   )
