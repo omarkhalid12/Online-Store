@@ -35,13 +35,10 @@ const App = () => {
   /* _______ RENDER ________*/
   const renderProductList = productList.map(product => <ProductCard key={product.id} product={product}/>)
   const renderFormInputsList =formInputsList.map(input => (
-    <div className="flex flex-col">
+    <div className="flex flex-col" key={input.id}>
       <label htmlFor={input.id} className="mb-[3px] text-sm font-medium text-gray-700">{input.label} :</label>
-      {/* LINE BELOW IS WRONG NOW FIX IT */}
-      {/* <Input type={input.type} id={input.id} name={input.name} 
-      value= {product['']} onChange={onChangeHandler} /> */}
       <Input type={input.type} id={input.id} name={input.name} 
-      value= {''} onChange={onChangeHandler} />
+      value= {product[input.name]} onChange={onChangeHandler} />
     </div>
   ))
 
