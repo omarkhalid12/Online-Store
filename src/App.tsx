@@ -1,27 +1,47 @@
-import { useState } from "react"
+import { ChangeEvent, useState } from "react"
 import ProductCard from "./components/ProductCard"
 import Modal from "./components/UI/Modal"
 import { formInputsList, productList } from "./data"
 import Button from "./components/UI/Button"
 import Input from "./components/UI/Input"
+import { IProduct } from "./Interfaces"
 
 const App = () => {
   /* _______ STATE ________*/
+  const [product, setProduct] = useState<IProduct>({
+    title : '',
+    description : '',
+    imageURL : '',
+    price : '',
+    colors : [],
+    category : {
+      name : '',
+      imageURL : ''
+    }
+  })
   const [isOpen, setIsOpen] = useState(false)
 
   /* _______ HANDLER ________*/
-  function closeModal() {
-    setIsOpen(false)
+  const closeModal = ()=> {setIsOpen(false)}
+  const openModal = ()=> {setIsOpen(true)}
+  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>)=> {
+    const {value, name} = event.target;
+    setProduct({
+      ...product,
+      [name]: value
+    })
   }
-  function openModal() {
-    setIsOpen(true)
-  }
+  
   /* _______ RENDER ________*/
   const renderProductList = productList.map(product => <ProductCard key={product.id} product={product}/>)
   const renderFormInputsList =formInputsList.map(input => (
     <div className="flex flex-col">
       <label htmlFor={input.id} className="mb-[3px] text-sm font-medium text-gray-700">{input.label} :</label>
-      <Input type={input.type} id={input.id} name={input.name}  />
+      {/* LINE BELOW IS WRONG NOW FIX IT */}
+      {/* <Input type={input.type} id={input.id} name={input.name} 
+      value= {product['']} onChange={onChangeHandler} /> */}
+      <Input type={input.type} id={input.id} name={input.name} 
+      value= {''} onChange={onChangeHandler} />
     </div>
   ))
 
