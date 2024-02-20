@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid";
-import { IFormInput, IProduct } from "../Interfaces";
+import { ICategory, IFormInput, IProduct } from "../Interfaces";
 
 export const productList: IProduct[] = [
   {
@@ -133,3 +133,55 @@ export const colors: string[] = [
   "#820000",
   "#ff0032",
 ];
+
+export const categories: ICategory[] = [
+  {
+    id: uuid(),
+    name: 'Nike',
+    imageURL:
+    "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: uuid(),
+    name: 'T-Shirt',
+    imageURL:
+    "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: uuid(),
+    name: 'Clothes',
+    imageURL:
+    "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: uuid(),
+    name: 'PC Desktop',
+    imageURL:
+    "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: uuid(),
+    name: 'Nike Shoes',
+    imageURL:
+    "https://images.unsplash.com/photo-1441984261150-55796ff52afc?q=80&w=1573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: uuid(),
+    name: 'Furniture',
+    imageURL:
+    "https://images.unsplash.com/photo-1441984261150-55796ff52afc?q=80&w=1573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: uuid(),
+    name: 'Cars',
+    imageURL:
+    "https://images.unsplash.com/photo-1441984261150-55796ff52afc?q=80&w=1573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: uuid(),
+    name: 'Camera',
+    imageURL:
+    "https://images.unsplash.com/photo-1441984261150-55796ff52afc?q=80&w=1573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+
+]
