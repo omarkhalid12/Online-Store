@@ -3,14 +3,16 @@ import { txtSlicer } from "../utils/Functions"
 import CircleColor from "./CircleColor"
 import Image from "./Image"
 import Button from "./UI/Button"
+
 interface IProps {
   product: IProduct
   setProductToEdit: (product: IProduct)=> void
   openEditModal: ()=> void
   index: number
   setProductToEditIndex: (value: number)=> void
+  openConfirmModal: ()=> void
 }
-const ProductCard = ({product, setProductToEdit, openEditModal, index, setProductToEditIndex} : IProps) => {
+const ProductCard = ({product, setProductToEdit, openEditModal, index, setProductToEditIndex, openConfirmModal} : IProps) => {
   const{title, description, imageURL, price, colors, category} = product;
 
   /* _______ RENDER ________*/
@@ -23,6 +25,11 @@ const ProductCard = ({product, setProductToEdit, openEditModal, index, setProduc
     setProductToEdit(product);
     openEditModal();
     setProductToEditIndex(index)
+  }
+
+  const onRemove = ()=> {
+    setProductToEdit(product);
+    openConfirmModal()
   }
 
   return (
@@ -47,7 +54,7 @@ const ProductCard = ({product, setProductToEdit, openEditModal, index, setProduc
 
       <div className="flex items-center justify-between space-x-2 mt-5">
         <Button className="bg-indigo-700 hover:bg-indigo-800" onClick={onEdit}>Edit</Button>
-        <Button className="bg-red-700 hover:bg-red-800">Remove</Button>
+        <Button className="bg-red-700 hover:bg-red-800" onClick={onRemove}>Remove</Button>
       </div>
     </div>
   )

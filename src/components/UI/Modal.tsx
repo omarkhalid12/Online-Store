@@ -5,6 +5,7 @@ interface IProps{
   isOpen: boolean;
   closeModal : ()=> void;
   title? : string;
+  description?: string;
   children: ReactNode
 }
 const Modal = ({isOpen, closeModal, title, children}: IProps)=> {
