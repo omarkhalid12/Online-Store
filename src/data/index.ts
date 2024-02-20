@@ -27,7 +27,7 @@ export const productList: IProduct[] = [
     price: "1200",
     colors: ["#a31acb", "#3c2a21", "#1f8a70", "#820000", "#ff0032"],
     category: {
-      name: "Cars",
+      name: "Spark",
       imageURL: 
       "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
@@ -86,6 +86,60 @@ export const productList: IProduct[] = [
       name: "PC Desktop",
       imageURL: 
       "https://images.unsplash.com/photo-1441984261150-55796ff52afc?q=80&w=1573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+  },
+  {
+    id: uuid(),
+    title: "Bridge on a rainy day",
+    description:
+    "Lorem ipsum dolor sit amat consectetur adipisicing elit. Atque reiciendis excepturi dolor vel.",
+    imageURL: 
+    "https://images.unsplash.com/photo-1707697781368-d4f7a152510e?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    price: "2000",
+    colors: [
+      "#a31acb", 
+      "#ff6e31", 
+      "#3c2a21"
+    ],
+    category: {
+      name: "rainy day",
+      imageURL: 
+      "https://images.unsplash.com/photo-1707697781368-d4f7a152510e?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+  },
+  {
+    id: uuid(),
+    title: "Reading Books",
+    description:
+    "Lorem ipsum dolor sit amat consectetur adipisicing elit. Atque reiciendis excepturi dolor vel.",
+    imageURL: 
+    "https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    price: "500",
+    colors: [],
+    category: {
+      name: "Book",
+      imageURL: 
+      "https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+  },
+  {
+    id: uuid(),
+    title: "Sport Team",
+    description:
+    "Lorem ipsum dolor sit amat consectetur adipisicing elit. Atque reiciendis excepturi dolor vel.",
+    imageURL: 
+    "https://images.unsplash.com/photo-1573056019901-7d8c83cd2c7a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    price: "3200",
+    colors: [ 
+      "#ff0032",
+      "#820000", 
+      "#13005a", 
+      "#84d2c5"
+      ],
+    category: {
+      name: "Sports",
+      imageURL: 
+      "https://images.unsplash.com/photo-1573056019901-7d8c83cd2c7a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
   },
 ]

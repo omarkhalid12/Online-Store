@@ -195,8 +195,8 @@ const App = () => {
             ))}
           </div>
           <div className="flex items-center space-x-3">
-            <Button className="bg-indigo-700 hover:bg-indigo-800">Submit</Button>
-            <Button className="bg-gray-400 hover:bg-gray-500" onClick={onCancel}>Cancel</Button>
+            <Button className="bg-indigo-700 hover:bg-indigo-800 p-3 ">Submit</Button>
+            <Button className="bg-[#f5f5fa] hover:bg-gray-300 !text-black w-full p-3 font-medium" onClick={onCancel}>Cancel</Button>
           </div>
         </form>
       </Modal>
@@ -225,8 +225,8 @@ const App = () => {
           </div>
 
           <div className="flex items-center space-x-3">
-            <Button className="bg-indigo-700 hover:bg-indigo-800">Submit</Button>
-            <Button className="bg-gray-400 hover:bg-gray-500" onClick={onCancel}>Cancel</Button>
+            <Button className="bg-indigo-700 hover:bg-indigo-800 p-3 ">Submit</Button>
+            <Button className="bg-[#f5f5fa] hover:bg-gray-300 !text-black w-full p-3 font-medium" onClick={onCancel}>Cancel</Button>
           </div>
 
         </form>
