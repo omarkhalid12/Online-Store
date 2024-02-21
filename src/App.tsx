@@ -78,13 +78,14 @@ const App = () => {
     setProducts(filtered);
     closeConfirmModal();
     toast("Product has been deleted successfully!", {
+      duration: 5000,
       icon: "👏",
       style: {
         backgroundColor: "#c2344d",
         color: "white",
       },
     });
-  };
+  }
 
   const submitHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -109,7 +110,9 @@ const App = () => {
     setProduct(defaultProductObj);
     setTempColors([]);
     closeModal();
-    
+    toast.success('Product has been added successfully!', {
+      duration: 3000
+    });
   }
   const submitEditHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -138,12 +141,8 @@ const App = () => {
     setTempColors([]);
     closeEditModal();
 
-    toast("Product has been updated successfully!", {
-      icon: "👏",
-      style: {
-        backgroundColor: "black",
-        color: "white",
-      },
+    toast.success('Product has been update successfully!', {
+      duration: 3000
     });
   }
   /* _______ RENDER ________*/
