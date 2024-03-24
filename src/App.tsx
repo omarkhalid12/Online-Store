@@ -40,12 +40,12 @@ const App = () => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0])  
 
   /* _______ HANDLER ________*/
-  const closeModal = ()=> {setIsOpen(false)}
-  const openModal = ()=> {setIsOpen(true)}
-  const closeEditModal = ()=> {setIsOpenEditModal(false)}
-  const openEditModal = ()=> {setIsOpenEditModal(true)}
+  const closeModal = ()=> setIsOpen(false)
+  const openModal = ()=> setIsOpen(true)
+  const closeEditModal = ()=> setIsOpenEditModal(false)
+  const openEditModal =  ()=> setIsOpenEditModal(true)
   const closeConfirmModal = () => setIsOpenConfirmModal(false);
-  const openConfirmModal = () => setIsOpenConfirmModal(true);
+  const openConfirmModal = ()=> setIsOpenConfirmModal(true)
 
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>)=> {
     const {value, name} = event.target;
@@ -193,91 +193,88 @@ const App = () => {
   }
 
   return (
-    <main className="container">
-
-      <Button className="block bg-indigo-700 hover:bg-indigo-800 mx-auto my-10 px-10 font-medium"
-        width="w-fit"
-        onClick={openModal}>
-        Build Product
-      </Button>
-
-      <div className="m-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-2 gap-2 md:gap-4 rounded-md">
-        {renderProductList}
-      </div>
-
-      {/* ADD PRODUCT MODAL */}
-      <Modal isOpen={isOpen} closeModal={closeModal} title="ADD A NEW PRODUCT">
-        <form className="space-y-3" onSubmit={submitHandler}>
-          {renderFormInputsList}
-          <SelectMenu selected={selectedCategory} setSelected={setSelectedCategory} />
-          <div className="flex flex-wrap items-center my-4 space-x-1">
-            {renderProductColors}
-          </div>
-          <div className="flex flex-wrap items-center my-4 space-x-1">
-            {tempColors.map(color => (
-              <span key={color} className="p-1 mr-1 mb-1 text-xs rounded-md text-white" style={{backgroundColor: color}}>
-                {color}
-              </span>
-            ))}
-          </div>
-          <div className="flex items-center space-x-3">
-            <Button className="bg-indigo-700 hover:bg-indigo-800 p-3 ">Submit</Button>
-            <Button className="bg-[#f5f5fa] hover:bg-gray-300 !text-black w-full p-3 font-medium" onClick={onCancel}>Cancel</Button>
-          </div>
-        </form>
-      </Modal>
-
-      {/* EDIT PRODUCT MODAL */}
-      <Modal isOpen={isOpenEditModal} closeModal={closeEditModal} title="EDIT THIS PRODUCT" >
-        <form className="space-y-3" onSubmit={submitEditHandler}>
-
-        {renderProductEditWithErrorMsg('title', 'Product Title', 'title')}
-        {renderProductEditWithErrorMsg('description', 'Product Description', 'description')}
-        {renderProductEditWithErrorMsg('imageURL', 'Product Image URL', 'imageURL')}
-        {renderProductEditWithErrorMsg('price', 'Product Price', 'price')}
-
-        <SelectMenu selected={productToEdit.category} 
-          setSelected={(value)=> setProductToEdit({...productToEdit, category: value})} />
-
-          <div className="flex flex-wrap items-center my-4 space-x-1">
-            {renderProductColors}
-          </div>
-          <div className="flex flex-wrap items-center my-4 space-x-1">
-            {tempColors.concat(productToEdit.colors).map(color => (
-              <span key={color} className="p-1 mr-1 mb-1 text-xs rounded-md text-white" style={{backgroundColor: color}}>
-                {color}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex items-center space-x-3">
-            <Button className="bg-indigo-700 hover:bg-indigo-800 p-3 ">Submit</Button>
-            <Button className="bg-[#f5f5fa] hover:bg-gray-300 !text-black w-full p-3 font-medium" onClick={onCancel}>Cancel</Button>
-          </div>
-
-        </form>
-      </Modal>
-
-      {/* DELETING PRODUCT CONFIRM MODAL */}
-      <Modal
-        isOpen={isOpenConfirmModal}
-        closeModal={closeConfirmModal}
-        title="Are you sure you want to remove this Product from your Store?"
-        description="Deleting this product will remove it permanently from your inventory. 
-        Any associated data, sales history, and other related information will also be deleted. 
-        Please make sure this is the intended action."
-      >
-        <div className="flex items-center space-x-3">
-          <Button className="bg-[#c2344d] hover:bg-red-800" onClick={removeProductHandler}>
-            Yes, remove
-          </Button>
-          <Button type="button" className="bg-[#f5f5fa] hover:bg-gray-300 !text-black" onClick={closeConfirmModal}>
-            Cancel
-          </Button>
+    <>
+      <main className="container">
+        <Button className="block bg-indigo-700 hover:bg-indigo-800 mx-auto my-10 px-10 font-medium"
+          width="w-fit"
+          onClick={openModal}>
+          Build Product
+        </Button>
+        <div className="m-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-2 gap-2 md:gap-4 rounded-md">
+          {renderProductList}
         </div>
-      </Modal>
-      <Toaster />
-    </main>
+        {/* ADD PRODUCT MODAL */}
+        <Modal isOpen={isOpen} closeModal={closeModal} title="ADD A NEW PRODUCT">
+          <form className="space-y-3" onSubmit={submitHandler}>
+            {renderFormInputsList}
+            <SelectMenu selected={selectedCategory} setSelected={setSelectedCategory} />
+            <div className="flex flex-wrap items-center my-4 space-x-1">
+              {renderProductColors}
+            </div>
+            <div className="flex flex-wrap items-center my-4 space-x-1">
+              {tempColors.map(color => (
+                <span key={color} className="p-1 mr-1 mb-1 text-xs rounded-md text-white" style={{backgroundColor: color}}>
+                  {color}
+                </span>
+              ))}
+            </div>
+            <div className="flex items-center space-x-3">
+              <Button className="bg-indigo-700 hover:bg-indigo-800 p-3 ">Submit</Button>
+              <Button className="bg-[#f5f5fa] hover:bg-gray-300 !text-black w-full p-3 font-medium" onClick={onCancel}>Cancel</Button>
+            </div>
+          </form>
+        </Modal>
+        {/* EDIT PRODUCT MODAL */}
+        <Modal isOpen={isOpenEditModal} closeModal={closeEditModal} title="EDIT THIS PRODUCT" >
+          <form className="space-y-3" onSubmit={submitEditHandler}>
+
+          {renderProductEditWithErrorMsg('title', 'Product Title', 'title')}
+          {renderProductEditWithErrorMsg('description', 'Product Description', 'description')}
+          {renderProductEditWithErrorMsg('imageURL', 'Product Image URL', 'imageURL')}
+          {renderProductEditWithErrorMsg('price', 'Product Price', 'price')}
+
+          <SelectMenu selected={productToEdit.category} 
+            setSelected={(value)=> setProductToEdit({...productToEdit, category: value})} />
+
+            <div className="flex flex-wrap items-center my-4 space-x-1">
+              {renderProductColors}
+            </div>
+            <div className="flex flex-wrap items-center my-4 space-x-1">
+              {tempColors.concat(productToEdit.colors).map(color => (
+                <span key={color} className="p-1 mr-1 mb-1 text-xs rounded-md text-white" style={{backgroundColor: color}}>
+                  {color}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex items-center space-x-3">
+              <Button className="bg-indigo-700 hover:bg-indigo-800 p-3 ">Submit</Button>
+              <Button className="bg-[#f5f5fa] hover:bg-gray-300 !text-black w-full p-3 font-medium" onClick={onCancel}>Cancel</Button>
+            </div>
+
+          </form>
+        </Modal>
+        {/* DELETING PRODUCT CONFIRM MODAL */}
+        <Modal
+          isOpen={isOpenConfirmModal}
+          closeModal={closeConfirmModal}
+          title="Are you sure you want to remove this Product from your Store?"
+          description="Deleting this product will remove it permanently from your inventory. 
+          Any associated data, sales history, and other related information will also be deleted. 
+          Please make sure this is the intended action."
+        >
+          <div className="flex items-center space-x-3">
+            <Button className="bg-[#c2344d] hover:bg-red-800" onClick={removeProductHandler}>
+              Yes, remove
+            </Button>
+            <Button type="button" className="bg-[#f5f5fa] hover:bg-gray-300 !text-black" onClick={closeConfirmModal}>
+              Cancel
+            </Button>
+          </div>
+        </Modal>
+        <Toaster />
+      </main>
+    </>
   )
 }
 

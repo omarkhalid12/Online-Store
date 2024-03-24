@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { IProduct } from "../Interfaces"
 import { txtSlicer } from "../utils/Functions"
 import CircleColor from "./CircleColor"
@@ -60,4 +61,4 @@ const ProductCard = ({product, setProductToEdit, openEditModal, index, setProduc
   )
 }
 
-export default ProductCard;
+export default ProductCard
