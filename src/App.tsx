@@ -9,7 +9,7 @@ import { productValidation } from "./validation"
 import ErrorMessage from "./components/ErrorMessage"
 import CircleColor from "./components/CircleColor"
 import { v4 as uuid } from "uuid";
-import SelectMenu from "./components/SelectMenu"
+import SelectMenu from "./components/UI/SelectMenu"
 import { TProductNames } from "./types"
 import toast, { Toaster } from "react-hot-toast"
 

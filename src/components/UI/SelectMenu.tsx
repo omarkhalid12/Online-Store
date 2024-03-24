@@ -1,8 +1,9 @@
-import { Fragment } from 'react'
+/* eslint-disable react-refresh/only-export-components */
+import { Fragment, memo } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
-import { categories } from '../data'
-import { ICategory } from '../Interfaces'
+import { categories } from '../../data'
+import { ICategory } from '../../Interfaces'
 
 interface IProps {
   selected: {name: string, imageURL: string}
@@ -83,4 +84,4 @@ const SelectMenu = ({selected, setSelected}: IProps) => {
     </Listbox>
   )
 }
-export default SelectMenu;
+export default memo(SelectMenu);
