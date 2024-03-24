@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react"
+import { ChangeEvent, FormEvent, useCallback, useState } from "react"
 import ProductCard from "./components/ProductCard"
 import Modal from "./components/UI/Modal"
 import { categories, colors, formInputsList, productList } from "./data"
@@ -9,7 +9,7 @@ import { productValidation } from "./validation"
 import ErrorMessage from "./components/ErrorMessage"
 import CircleColor from "./components/CircleColor"
 import { v4 as uuid } from "uuid";
-import SelectMenu from "./components/SelectMenu"
+import SelectMenu from "./components/UI/SelectMenu"
 import { TProductNames } from "./types"
 import toast, { Toaster } from "react-hot-toast"
 
@@ -43,9 +43,9 @@ const App = () => {
   const closeModal = ()=> setIsOpen(false)
   const openModal = ()=> setIsOpen(true)
   const closeEditModal = ()=> setIsOpenEditModal(false)
-  const openEditModal =  ()=> setIsOpenEditModal(true)
+  const openEditModal = useCallback(()=> setIsOpenEditModal(true), [])
   const closeConfirmModal = () => setIsOpenConfirmModal(false);
-  const openConfirmModal = ()=> setIsOpenConfirmModal(true)
+  const openConfirmModal = useCallback(()=> setIsOpenConfirmModal(true), [])
 
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>)=> {
     const {value, name} = event.target;
