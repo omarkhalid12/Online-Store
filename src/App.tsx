@@ -47,17 +47,13 @@ const App = () => {
   const closeConfirmModal = () => setIsOpenConfirmModal(false);
   const openConfirmModal = useCallback(()=> setIsOpenConfirmModal(true), [])
 
-  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>)=> {
+  const onChangeHandler = useCallback((event: ChangeEvent<HTMLInputElement>)=> {
     const {value, name} = event.target;
-    setProduct({
-      ...product,
-      [name]: value
-    })
-    setErrors({
-      ...errors,
-      [name]: ""
-    })
-  }
+
+    setProduct(prev => ({ ...prev, [name]: value }));
+    setErrors(prev => ({ ...prev, [name]: "" }));
+  }, [])
+  
   const onChangeEditHandler = (event: ChangeEvent<HTMLInputElement>)=> {
     const {value, name} = event.target;
     setProductToEdit({
@@ -114,6 +110,7 @@ const App = () => {
       duration: 3000
     });
   }
+
   const submitEditHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     const {title, description, imageURL, price} = productToEdit;
@@ -148,13 +145,13 @@ const App = () => {
   /* _______ RENDER ________*/
   const renderProductList = products.map((product, index) =>(
     <ProductCard 
-      key={product.id} 
-      product={product} 
-      setProductToEdit={setProductToEdit} 
-      openEditModal={openEditModal}
-      index={index}
-      setProductToEditIndex={setProductToEditIndex}
-      openConfirmModal={openConfirmModal}
+    key={product.id}
+    product={product}
+    setProductToEdit={setProductToEdit}
+    openEditModal={openEditModal}
+    idx={index}
+    setProductToEditIdx={setProductToEditIndex}
+    openConfirmModal={openConfirmModal}
     />
   ));
 
@@ -227,7 +224,6 @@ const App = () => {
         {/* EDIT PRODUCT MODAL */}
         <Modal isOpen={isOpenEditModal} closeModal={closeEditModal} title="EDIT THIS PRODUCT" >
           <form className="space-y-3" onSubmit={submitEditHandler}>
-
           {renderProductEditWithErrorMsg('title', 'Product Title', 'title')}
           {renderProductEditWithErrorMsg('description', 'Product Description', 'description')}
           {renderProductEditWithErrorMsg('imageURL', 'Product Image URL', 'imageURL')}
@@ -235,7 +231,6 @@ const App = () => {
 
           <SelectMenu selected={productToEdit.category} 
             setSelected={(value)=> setProductToEdit({...productToEdit, category: value})} />
-
             <div className="flex flex-wrap items-center my-4 space-x-1">
               {renderProductColors}
             </div>
@@ -246,12 +241,10 @@ const App = () => {
                 </span>
               ))}
             </div>
-
             <div className="flex items-center space-x-3">
               <Button className="bg-indigo-700 hover:bg-indigo-800 p-3 ">Submit</Button>
               <Button className="bg-[#f5f5fa] hover:bg-gray-300 !text-black w-full p-3 font-medium" onClick={onCancel}>Cancel</Button>
             </div>
-
           </form>
         </Modal>
         {/* DELETING PRODUCT CONFIRM MODAL */}
